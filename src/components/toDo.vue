@@ -20,7 +20,7 @@ export default {
         { id: 5, text: "Research Vue routing" },
         { id: 6, text: "Create info section about every to do item" },
         { id: 7, text: "Create log in system using Firebase Authentication" },
-        { id: 8, text: "Create log in system using Firebase Authentication"},
+        { id: 8, text: "Create simple websocket chat for logged in guests"},
         { id: 9, text: "and we will see..."}
       ]
     }
