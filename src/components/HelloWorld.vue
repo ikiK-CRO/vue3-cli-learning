@@ -20,8 +20,7 @@ export default {
         { id: 3, text: "Create first Vue build for publishing" },
         { id: 4, text: "Create Heroku node js server and app" },
         { id: 5, text: "Connect Github and Heroku app" },
-        { id: 6, text: "Connect Github and Heroku app" },
-        { id: 7, text: "Publish builds automatically to Heroku app using push of main branch of Github repo"}
+        { id: 6, text: "Publish builds automatically to Heroku app using push of main branch of Github repo"}
       ]
     }
   },
