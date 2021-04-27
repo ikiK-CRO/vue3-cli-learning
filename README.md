@@ -20,9 +20,11 @@ https://vue3-cli-learning.herokuapp.com/
 To do:
 1. Setup initial UI
 2. Setup to do list
-3. Setup DB Cloud Firestore connectivity
-4. Research Vue routing 
-5. Create info about every to do item
-6. Create log in system using Firebase Authentication
-7. Create simple websocket chat for logged in guests
+3. Setup menu
+4. Setup DB Cloud Firestore connectivity
+5. Research Vue routing 
+6. Create info about every to do item
+7. Create log in system using Firebase Authentication
+8. Create simple websocket chat for logged in guests
+9. and we will see...
 ...
