@@ -16,7 +16,7 @@ export default {
         { id: 1, text: "Setup initial UI ✓"},
         { id: 2, text: "Setup some Vue 3 compatible component library" },
         { id: 3, text: "Prevent Heroku app from spleep" },
-        { id: 4, text: "Setup to do list" },
+        { id: 4, text: "Setup to do list ✓" },
         { id: 5, text: "Setup menu" },
         { id: 6, text: "Setup DB Cloud Firestore connectivity" },
         { id: 7, text: "Research Vue routing" },
@@ -40,7 +40,7 @@ h3 {
 }
 ul {
   list-style-type: upper-roman;
-  padding: 0;
+  padding: 5px;
 }
 li {
   margin: 0 10px;
