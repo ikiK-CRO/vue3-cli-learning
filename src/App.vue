@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" class="logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to my Vue.js V3 App"/>
+  <HelloWorld mainTittle="Welcome to my Vue.js V3 App" msg="This is progress of me learning Vue3 cli... &#9829;"/>
   <toDo msg="To be done:"/>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   margin-top: 60px;
 }
 .logo{
-  max-height: 250px;
-  max-width: 250px;
+  max-height: 220px;
+  max-width: 220px;
 }
 </style>

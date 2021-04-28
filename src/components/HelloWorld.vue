@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>{{todoDidTitle}}</h2>
+    <h1>{{ mainTittle }}</h1>
+    <h2>{{ msg }}</h2>
+    <h3>{{todoDidTitle}}</h3>
     <ul>
       <li v-for="did in todoDid" v-bind:key="did.id">{{ did.text }} &#10003;</li>
     </ul>
@@ -26,6 +27,7 @@ export default {
   },
   props: {
     msg: String,
+    mainTittle : String,
   },
 };
 </script>
