@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       todo: [
-        { id: 1, text: "Setup initial UI"},
+        { id: 1, text: "Setup initial UI ✓"},
         { id: 2, text: "Setup some Vue 3 compatible component library" },
         { id: 3, text: "Setup to do list" },
         { id: 4, text: "Setup menu" },
