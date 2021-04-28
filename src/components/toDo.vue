@@ -14,7 +14,7 @@ export default {
     return {
       todo: [
         { id: 1, text: "Setup initial UI ✓"},
-        { id: 2, text: "Setup some Vue 3 compatible component library" },
+        { id: 2, text: "Setup some Vue 3 compatible component library ✓" },
         { id: 3, text: "Prevent Heroku app from spleep" },
         { id: 4, text: "Setup to do list ✓" },
         { id: 5, text: "Setup menu" },
