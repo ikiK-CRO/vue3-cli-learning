@@ -2,6 +2,7 @@
   <img alt="Vue logo" class="logo" src="./assets/logo.png">
   <HelloWorld mainTittle="Welcome to my Vue.js V3 App" msg="This is progress of me learning Vue3 cli... &#9829;"/>
   <toDo msg="To be done:"/>
+  <Toast /> 
 </template>
 
 <script>
@@ -14,7 +15,10 @@ export default {
   components: {
     HelloWorld,
     toDo
-  }
+  },
+  mounted() {
+        this.$toast.add({severity:'success', summary: 'Yeeeey', detail:'Successfully added PrimeVue', life: 6000});
+    }
 }
 </script>
 
