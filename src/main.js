@@ -9,7 +9,6 @@ import Button from 'primevue/button';
 import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 
-import 'primevue/resources/themes/arya-orange/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 

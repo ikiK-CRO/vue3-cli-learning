@@ -1,4 +1,5 @@
 <template>
+  <i @click="theme" class="pi pi-palette" style="fontsize: 2rem"></i>
   <img alt="Vue logo" class="logo" src="./assets/logo.png" />
   <HelloWorld
     mainTittle="Welcome to my Vue.js V3 App"
@@ -11,6 +12,15 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import toDo from "./components/toDo.vue";
+//import 'primevue/resources/themes/arya-orange/theme.css';
+
+(async () => {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    await import("primevue/resources/themes/arya-orange/theme.css");
+  } else {
+    await import("primevue/resources/themes/saga-blue/theme.css");
+  }
+})();
 
 export default {
   name: "App",
@@ -19,12 +29,20 @@ export default {
     toDo,
   },
   mounted() {
+    //window.matchMedia('(prefers-color-scheme: dark)').matches
     this.$toast.add({
       severity: "success",
       summary: "Yeeeey",
       detail: "Successfully added PrimeVue",
       life: 6000,
     });
+  },
+  methods: {
+    theme() {
+      (async () => {
+        await import("primevue/resources/themes/saga-blue/theme.css");
+      })();
+    },
   },
 };
 </script>
