@@ -23,7 +23,8 @@ export default {
         { id: 8, text: "Create info section about every to do item" },
         { id: 9, text: "Create log in system using Firebase Authentication" },
         { id: 10, text: "Create simple websocket chat for logged in guests"},
-        { id: 11, text: "..."}
+        { id: 11, text: "Setup dark / light theme on load and on click"},
+        { id: 12, text: "..."}
       ]
     }
   },

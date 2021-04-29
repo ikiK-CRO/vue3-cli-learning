@@ -1,5 +1,7 @@
 <template>
-  <i @click="theme" class="pi pi-palette" style="fontsize: 2rem"></i>
+  <div class="manuBar">
+    <Menubar :model="menuItems" />
+  </div>
   <img alt="Vue logo" class="logo" src="./assets/logo.png" />
   <HelloWorld
     mainTittle="Welcome to my Vue.js V3 App"
@@ -12,13 +14,12 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import toDo from "./components/toDo.vue";
-//import 'primevue/resources/themes/arya-orange/theme.css';
 
 (async () => {
   if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    await import("primevue/resources/themes/arya-orange/theme.css");
+    await import("primevue/resources/themes/bootstrap4-dark-blue/theme.css");
   } else {
-    await import("primevue/resources/themes/saga-blue/theme.css");
+    await import("primevue/resources/themes/bootstrap4-light-blue/theme.css");
   }
 })();
 
@@ -28,8 +29,35 @@ export default {
     HelloWorld,
     toDo,
   },
+  data() {
+    return {
+      menuItems: [
+        {
+          icon: "pi pi-fw pi-sun",
+          command: () => {
+            (async () => {
+              await import(
+                "primevue/resources/themes/bootstrap4-light-blue/theme.css"
+              );
+            })();
+          },
+        },
+        {
+          icon: "pi pi-fw pi-moon",
+          command: () => {
+            (async () => {
+              console.log(true);
+              await import(
+                "primevue/resources/themes/bootstrap4-dark-blue/theme.css"
+              );
+            })();
+          },
+        },
+      ],
+    };
+  },
+
   mounted() {
-    //window.matchMedia('(prefers-color-scheme: dark)').matches
     this.$toast.add({
       severity: "success",
       summary: "Yeeeey",
@@ -37,13 +65,7 @@ export default {
       life: 6000,
     });
   },
-  methods: {
-    theme() {
-      (async () => {
-        await import("primevue/resources/themes/saga-blue/theme.css");
-      })();
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -63,11 +85,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 .logo {
   max-height: 220px;
   max-width: 220px;
   border-radius: 50%;
+}
+.manuBar {
+  margin-bottom: 20px;
 }
 </style>
