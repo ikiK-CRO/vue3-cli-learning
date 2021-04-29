@@ -15,13 +15,19 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import toDo from "./components/toDo.vue";
 
-(async () => {
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    await import("primevue/resources/themes/bootstrap4-dark-blue/theme.css");
-  } else {
-    await import("primevue/resources/themes/bootstrap4-light-blue/theme.css");
-  }
-})();
+const themes = [
+  { dark: "themes/bootstrap4-dark-blue/theme.css" },
+  { light: "themes/bootstrap4-light-blue/theme.css" },
+];
+
+const changeTheme = (theme) => {
+  document.querySelector("#theme-link").setAttribute("href", theme);
+};
+const loadTheme = () => {
+  window.matchMedia("(prefers-color-scheme: dark)")
+    ? changeTheme(themes[0].dark)
+    : changeTheme(themes[1].light);
+};
 
 export default {
   name: "App",
@@ -35,22 +41,15 @@ export default {
         {
           icon: "pi pi-fw pi-sun",
           command: () => {
-            (async () => {
-              await import(
-                "primevue/resources/themes/bootstrap4-light-blue/theme.css"
-              );
-            })();
+            changeTheme(themes[1].light)
+            localStorage.setItem("theme", themes[1].light);
           },
         },
         {
           icon: "pi pi-fw pi-moon",
           command: () => {
-            (async () => {
-              console.log(true);
-              await import(
-                "primevue/resources/themes/bootstrap4-dark-blue/theme.css"
-              );
-            })();
+            changeTheme(themes[0].dark)
+            localStorage.setItem("theme", themes[0].dark);
           },
         },
       ],
@@ -58,6 +57,9 @@ export default {
   },
 
   mounted() {
+    localStorage.getItem("theme") == null
+      ? loadTheme()
+      : changeTheme(localStorage.getItem("theme"));
     this.$toast.add({
       severity: "success",
       summary: "Yeeeey",
