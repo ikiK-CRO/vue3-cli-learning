@@ -1,6 +1,19 @@
 <template>
   <div class="manuBar">
-    <Menubar :model="menuItems" />
+    <Menubar
+      :model="menuItems"
+      v-tooltip.bottom="'Chose theme'"
+      class="menuBarMenu"
+    />
+    <Menubar class="menuBarTheme">
+      <template #end>
+        <Button
+          icon="pi pi-user"
+          class="p-button-rounded p-button-info p-button-outlined"
+          @click="login"
+        />
+      </template>
+    </Menubar>
   </div>
   <img alt="Vue logo" class="logo" src="./assets/logo.png" />
   <HelloWorld
@@ -40,16 +53,26 @@ export default {
       menuItems: [
         {
           icon: "pi pi-fw pi-sun",
+          title: "Light theme",
           command: () => {
-            changeTheme(themes[1].light)
+            changeTheme(themes[1].light);
             localStorage.setItem("theme", themes[1].light);
           },
         },
         {
           icon: "pi pi-fw pi-moon",
+          title: "Dark theme",
           command: () => {
-            changeTheme(themes[0].dark)
+            changeTheme(themes[0].dark);
             localStorage.setItem("theme", themes[0].dark);
+          },
+        },
+        {
+          icon: "pi pi-fw pi-desktop",
+          title: "System theme",
+          command: () => {
+            localStorage.removeItem("theme");
+            loadTheme();
           },
         },
       ],
@@ -62,12 +85,21 @@ export default {
       : changeTheme(localStorage.getItem("theme"));
     this.$toast.add({
       severity: "success",
-      summary: "Yeeeey",
-      detail: "Successfully added PrimeVue",
+      summary: "Welcome",
+      detail: "You pretty thing! Have a good day!",
       life: 6000,
     });
   },
-  methods: {},
+  methods: {
+    login() {
+      this.$toast.add({
+        severity: "error",
+        summary: "OH!",
+        detail: "No, no you wont!",
+        life: 6000,
+      });
+    },
+  },
 };
 </script>
 
@@ -96,5 +128,16 @@ body {
 }
 .manuBar {
   margin-bottom: 20px;
+  display: flex;
+}
+
+.menuBarTheme {
+  margin-left: auto;
+}
+.menuBarMenu {
+  /* min-width: 90% !important; */
+}
+.p-toast {
+  margin-top: 75px;
 }
 </style>

@@ -11,6 +11,8 @@ import Menubar from "primevue/menubar";
 import Toolbar from 'primevue/toolbar';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
+import Tooltip from 'primevue/tooltip';
+
 
 
 
@@ -24,6 +26,6 @@ app.component('Menubar', Menubar);
 app.component('InputText', InputText);
 app.component('Button', Button);
 app.component('Toast', Toast);
-
+app.directive('tooltip', Tooltip);
 
 app.mount('#app')
