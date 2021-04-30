@@ -3,14 +3,24 @@
     <Menubar
       :model="menuItems"
       v-tooltip.bottom="'Chose theme'"
-      class="menuBarMenu"
+      class="menuBarTheme"
     />
-    <Menubar class="menuBarTheme">
+    <Menubar class="menuBarMenu" :model="menu2Items">
       <template #end>
-        <Button
+        <!-- <Button
           icon="pi pi-user"
           class="p-button-rounded p-button-info p-button-outlined"
           @click="login"
+        /> -->
+        <font-awesome-icon
+          :icon="['fab', 'linkedin']"
+          class="icon alt"
+          @click="linkedin"
+        />
+        <font-awesome-icon
+          :icon="['fa', 'wifi']"
+          class="icon alt"
+          @click="appdiz"
         />
       </template>
     </Menubar>
@@ -53,7 +63,6 @@ export default {
       menuItems: [
         {
           icon: "pi pi-fw pi-sun",
-          title: "Light theme",
           command: () => {
             changeTheme(themes[1].light);
             localStorage.setItem("theme", themes[1].light);
@@ -61,7 +70,6 @@ export default {
         },
         {
           icon: "pi pi-fw pi-moon",
-          title: "Dark theme",
           command: () => {
             changeTheme(themes[0].dark);
             localStorage.setItem("theme", themes[0].dark);
@@ -69,10 +77,17 @@ export default {
         },
         {
           icon: "pi pi-fw pi-desktop",
-          title: "System theme",
           command: () => {
             localStorage.removeItem("theme");
             loadTheme();
+          },
+        },
+      ],
+      menu2Items: [
+        {
+          icon: "pi pi-fw pi-github",
+          command: () => {
+            window.open("https://github.com/ikiK-CRO", "_blank");
           },
         },
       ],
@@ -91,14 +106,20 @@ export default {
     });
   },
   methods: {
-    login() {
-      this.$toast.add({
-        severity: "error",
-        summary: "OH!",
-        detail: "No, no you wont!",
-        life: 6000,
-      });
+    linkedin() {
+      window.open("https://www.linkedin.com/in/kristijan-bicak/", "_blank");
     },
+    appdiz() {
+      window.open("https://www.appdiz-informatika.hr", "_blank");
+    },
+    // login() {
+    //   this.$toast.add({
+    //     severity: "error",
+    //     summary: "OH!",
+    //     detail: "No, no you wont!",
+    //     life: 6000,
+    //   });
+    // },
   },
 };
 </script>
@@ -131,13 +152,18 @@ body {
   display: flex;
 }
 
-.menuBarTheme {
-  margin-left: auto;
-}
 .menuBarMenu {
   /* min-width: 90% !important; */
+  margin-left: auto;
+  padding-right: 20px;
 }
 .p-toast {
   margin-top: 75px;
+}
+.icon {
+  margin-right: 20px;
+}
+.icon:hover {
+  color: rgba(255, 255, 255, 0.87);
 }
 </style>
